@@ -1,0 +1,41 @@
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: white;
+  background-color: purple;
+
+  input {
+    max-width: 150px;
+    flex: 1;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+    margin-right: 10px;
+  }
+
+  button {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+    color: purple;
+  }
+
+  .unitheckbox {
+    display: flex;
+    align-items: center;
+
+    label {
+      display: flex;
+      align-items: center;
+
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+    }
+  }
+}

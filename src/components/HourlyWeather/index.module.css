@@ -1,0 +1,35 @@
+.mainWeather {
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.weatherEntries {
+  display: flex;
+  flex-direction: column;
+}
+
+.weatherEntry {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 16px;
+}
+
+.weatherEntry:last-child {
+  border-bottom: none;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+p {
+  margin: 0;
+}

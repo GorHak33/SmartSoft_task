@@ -1,0 +1,34 @@
+.mainWeather {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.mainWeather .weatherBox {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 40%;
+}
+
+.mainWeather .weatherBox h1 {
+  margin-bottom: 10px;
+  font-size: 36px;
+  color: #333;
+}
+
+.mainWeather .weatherBox img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.mainWeather .weatherBox h2 {
+  font-size: 20px;
+  color: #555;
+}
