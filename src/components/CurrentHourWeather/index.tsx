@@ -4,13 +4,11 @@ import styles from "./index.module.css";
 import { RootState } from "../../types/types";
 
 const CurrentHourWeather: React.FC = () => {
-  const weatherData = useSelector(
-    (state: RootState) => state.forecastWeather.data
-  );
-  const loading = useSelector(
-    (state: RootState) => state.forecastWeather.loading
-  );
-  const error = useSelector((state: RootState) => state.forecastWeather.error);
+  const {
+    data: weatherData,
+    loading,
+    error,
+  } = useSelector((state: RootState) => state.forecastWeather);
 
   if (loading) {
     return <p>Loading current weather...</p>;
@@ -36,10 +34,8 @@ const CurrentHourWeather: React.FC = () => {
       }
       return null;
     })
-    .filter(
-      (weather): weather is { time: string; temperature: number } =>
-        weather !== null
-    )[0];
+    .filter(weather => weather !== null)[0];
+  console.log(currentHourWeather);
 
   return (
     <div className={styles.mainWeather}>

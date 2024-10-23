@@ -1,4 +1,3 @@
-// forecastWeatherSlice.ts
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -14,10 +13,8 @@ const initialState: WeatherState = {
   error: null,
 };
 
-// Base URL for Open Meteo API
 const API_URL = "https://api.open-meteo.com/v1/forecast";
 
-// Parameters interface
 interface FetchWeatherDataParams {
   latitude: number;
   longitude: number;
@@ -65,4 +62,4 @@ const forecastWeatherSlice = createSlice({
 });
 
 // Default export
-export default forecastWeatherSlice.reducer; // Ensure this is the default export
+export default forecastWeatherSlice.reducer;

@@ -1,23 +1,34 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
-import { WeatherData, RootState, DailyTemperature } from "../../types/types";
+import { RootState, DailyTemperature } from "../../types/types";
 
 const DailyWeather: React.FC = () => {
-  const data: WeatherData | null = useSelector(
-    (state: RootState) => state.forecastWeather.data
-  );
+  const {
+    data: weatherData,
+    loading,
+    error,
+  } = useSelector((state: RootState) => state.forecastWeather);
 
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
-  if (!data) {
+  if (loading) {
+    return <p>Loading current weather...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  if (!weatherData) {
     return <div>No weather data available</div>;
   }
 
-  const { time: hourlyTimeArray, temperature_2m: temperatureArray } =
-    data.hourly;
+  const hourlyTimeArray = weatherData.hourly.time;
+  const temperatureArray = weatherData.hourly.temperature_2m;
 
   const temperaturesByDate: Record<string, number[]> = {};
+
   const hourlyDetails: Record<string, { time: string; temp: number }[]> = {};
 
   const datesArray = hourlyTimeArray.map((time: string) =>
@@ -35,6 +46,8 @@ const DailyWeather: React.FC = () => {
       temp: temperatureArray[index],
     });
   });
+
+  console.log(temperaturesByDate);
 
   const uniqueDatesArray = Array.from(new Set(datesArray)).slice(1, 6);
 

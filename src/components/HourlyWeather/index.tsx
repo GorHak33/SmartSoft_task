@@ -29,12 +29,13 @@ const CurrentHourWeather: React.FC = () => {
 
   const currentTime = new Date();
 
-  const hourlyWeather: HourlyWeather[] = weatherData.hourly.time.map(
-    (time: string, index: number) => ({
-      time,
-      temperature: weatherData.hourly.temperature_2m[index],
-    })
-  );
+  let hourlyWeather: HourlyWeather[] = [];
+  for (let i = 0; i < weatherData.hourly.time.length; i++) {
+    const time = weatherData.hourly.time[i];
+    const temperature = weatherData.hourly.temperature_2m[i];
+
+    hourlyWeather.push({ time, temperature });
+  }
 
   const filteredData = hourlyWeather.filter(entry => {
     const entryTime = new Date(entry.time);
@@ -46,6 +47,7 @@ const CurrentHourWeather: React.FC = () => {
       const entryTime = new Date(entry.time);
       return entryTime > currentTime && entryTime.getHours() % 3 === 0;
     });
+    console.log(nextDayWeather);
 
     if (nextDayWeather.length === 0) break;
 
